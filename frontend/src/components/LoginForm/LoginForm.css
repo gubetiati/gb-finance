@@ -1,0 +1,228 @@
+#root {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #2b2b2b;
+    padding: 3rem;
+    border-radius: 12px;
+    width: calc(100% - 2rem);
+    max-width: 600px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin: 1rem;
+    box-sizing: border-box;
+}
+
+.container-principal::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -1.6px;
+    right: -1.6px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff6be6, #6b6bff);
+    border-radius: 16px;
+    z-index: -1;
+}
+
+.form-style {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.titulo {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.form-style label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-style input {
+    border-radius: 8px;
+    border: 1px solid #3f3f3f;
+    padding: 1rem 1.25rem;
+    font-size: 1.1rem;
+    width: 100%;
+    background-color: #383838;
+    color: #fff;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-style input:focus {
+    outline: none;
+    border-color: #8250f8;
+    box-shadow: 0 0 0 2px rgba(130, 80, 248, 0.2);
+}
+
+.form-style button {
+    background-color: #8250f8;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    padding-bottom: 2rem;
+    font-size: 1.1rem;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.form-style button:hover {
+    background-color: #5735a7;
+    transform: translateY(-1px);
+}
+
+.register-link {
+    margin-top: 2.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    padding-top: 2rem;
+    border-top: 1px solid #4a4a4a;
+}
+
+.register-link p {
+    color: #e0e0e0;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.register-link a {
+    color: #8250f8;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.register-link a:hover {
+    color: #ff6be6;
+    text-decoration: underline;
+}
+
+.error-message {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    text-align: center;
+    background-color: rgba(255, 71, 87, 0.1);
+    color: #ff4757;
+    border: 1px solid rgba(255, 71, 87, 0.2);
+}
+
+@media (max-width: 768px) {
+    #root {
+        align-items: center; 
+    }
+
+    .container-principal {
+        padding: 2rem;
+        margin: auto; 
+        width: 90%;
+        max-width: 400px; 
+    }
+
+    .titulo {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+    }
+
+    .form-style {
+        gap: 1.25rem;
+    }
+
+    .form-style input,
+    .form-style button {
+        padding: 0.875rem 1rem;
+        font-size: 1rem;
+    }
+
+    .register-link {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #root {
+        padding: 0;
+    }
+
+    .container-principal {
+        margin: auto; 
+        padding: 1.5rem;
+        max-width: 95%;
+    }
+
+
+    .container-principal::before {
+        border-radius: 12px;
+    }
+
+    .titulo {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-style input,
+    .form-style button {
+        padding: 0.875rem;
+    }
+
+    .form-style label {
+        font-size: 0.9rem;
+    }
+
+    .register-link {
+        margin-top: 1.5rem;
+        padding-top: 1.25rem;
+    }
+
+    .register-link p {
+        font-size: 0.9rem;
+    }
+
+    .register-link a {
+        font-size: 1rem;
+    }
+}
+
+/* Ajuste para telas muito pequenas */
+@media (max-height: 600px) {
+    #root {
+        align-items: flex-start;
+    }
+
+    .container-principal {
+        margin: 0.75rem;
+    }
+}
