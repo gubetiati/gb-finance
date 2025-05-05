@@ -21,6 +21,19 @@ const userSchema = new mongoose.Schema({
     timestamps: true
 })
 
+// middleware para criptografar a senha antes de salvar
+userSchema.pre('save', async function(next) {
+    if (!this.isModified('password')) return next()
+    
+    try {
+        const salt = await bcrypt.genSalt(10)
+        this.password = await bcrypt.hash(this.password, salt)
+        next()
+    } catch (error) {
+        next(error)
+    }
+})
+
 // método para comparar senhas
 userSchema.methods.comparePassword = async function(candidatePassword){
     return await bcrypt.compare(candidatePassword, this.password)

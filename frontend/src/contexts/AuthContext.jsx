@@ -19,7 +19,10 @@ export function AuthProvider({ children }){
 
     const login = async (email, password) => {
         try{
+            console.log('Tentando fazer login com:', { email })
             const response = await api.post('/auth/login', { email, password })
+            console.log('Resposta do servidor:', response.data)
+            
             const { user, token } = response.data
 
             localStorage.setItem('user', JSON.stringify(user))
@@ -28,9 +31,22 @@ export function AuthProvider({ children }){
 
             return { success: true }
         } catch(error){
+            console.error('Erro detalhado no login:', {
+                message: error.message,
+                response: error.response?.data,
+                status: error.response?.status
+            })
+            
+            if (error.response?.data?.message) {
+                return {
+                    success: false,
+                    message: error.response.data.message
+                }
+            }
+            
             return {
                 success: false,
-                message: error.response?.data?.message || 'Erro ao fazer login'
+                message: 'Erro ao fazer login. Verifique suas credenciais.'
             }
         }
     }

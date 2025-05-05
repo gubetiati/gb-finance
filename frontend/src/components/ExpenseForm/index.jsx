@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import { expenseService } from '../../services/expenses'
+import './ExpenseForm.css'
 
 export default function ExpenseForm() {
     const [category, setCategory] = useState('')
@@ -99,15 +100,12 @@ export default function ExpenseForm() {
                     required
                 />
 
-                <label htmlFor="value">Valor (R$)</label>
+                <label htmlFor="date">Data</label>
                 <input
-                    type="number"
-                    id="value"
-                    placeholder="0,00"
-                    value={value}
-                    onChange={(e) => setValue(e.target.value)}
-                    step="0.01"
-                    min="0"
+                    type="date"
+                    id="date"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
                     required
                 />
 

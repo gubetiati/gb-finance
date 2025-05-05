@@ -60,7 +60,7 @@ export const expenseService = {
         } catch (error) {
             return {
                 success: false,
-                message: error.response?.data?.message || 'Erro ao deletar despesa'
+                message: error.response?.data?.message || 'Erro ao excluir despesa'
             }
         }
     }

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import { expenseService } from '../../services/expenses'
+import Relatorio from '../Relatorio'
 import './Dashboard.css'
 
 export default function Dashboard() {
@@ -41,6 +42,23 @@ export default function Dashboard() {
 
     const handleAddExpense = () => {
         navigate('/expenses/new')
+    }
+
+    const handleDeleteExpense = async (expenseId) => {
+        if (window.confirm('Tem certeza que deseja excluir esta despesa?')) {
+            try {
+                const result = await expenseService.delete(expenseId)
+                if (result.success) {
+                    // Atualiza a lista de despesas removendo a despesa excluída
+                    setExpenses(prevExpenses => prevExpenses.filter(expense => expense._id !== expenseId))
+                } else {
+                    alert('Erro ao excluir despesa: ' + result.message)
+                }
+            } catch (error) {
+                console.error('Erro ao excluir despesa:', error)
+                alert('Erro ao excluir despesa. Tente novamente.')
+            }
+        }
     }
 
     // filtra as despesas pelo mês e ano selecionados
@@ -148,9 +166,22 @@ export default function Dashboard() {
                                 <div key={expense._id} className="expense-item">
                                     <div className="expense-item-header">
                                         <h3>{expense.category}</h3>
-                                        <p className="expense-value">
-                                            R$ {expense.value.toFixed(2)}
-                                        </p>
+                                        <div className="expense-item-actions">
+                                            <p className="expense-value">
+                                                R$ {expense.value.toFixed(2)}
+                                            </p>
+                                            <button 
+                                                onClick={() => handleDeleteExpense(expense._id)}
+                                                className="delete-button"
+                                                aria-label="Excluir despesa"
+                                            >
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                    <path d="M3 6h18"></path>
+                                                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                                                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
                                     </div>
                                     <div className="expense-item-details">
                                         <p className="expense-date">
@@ -165,6 +196,8 @@ export default function Dashboard() {
                         </div>
                     )}
                 </div>
+
+                <Relatorio expenses={filteredExpenses} />
             </main>
         </div>
     )
