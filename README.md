@@ -11,7 +11,6 @@ GB Finance é uma aplicação web moderna para gerenciamento de despesas e finan
 - React Router DOM
 - Axios
 - Context API para gerenciamento de estado
-- CSS Modules para estilização
 
 ### Backend
 - Node.js
