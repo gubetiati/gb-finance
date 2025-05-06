@@ -42,7 +42,7 @@ export default function ExpenseForm() {
             const expenseData = {
                 category,
                 value: numericValue,
-                date: new Date(date).toISOString(),
+                date: new Date(date + 'T00:00:00').toISOString(),
                 description: description.trim()
             }
     

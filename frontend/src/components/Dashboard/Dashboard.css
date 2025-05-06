@@ -121,6 +121,9 @@
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 400px;
+    display: flex;
+    flex-direction: column;
 }
 
 .expenses-list h2 {
@@ -133,6 +136,28 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    flex: 1;
+}
+
+/* Estilização da barra de rolagem */
+.expenses-list-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.expenses-list-container::-webkit-scrollbar-track {
+    background: #383838;
+    border-radius: 4px;
+}
+
+.expenses-list-container::-webkit-scrollbar-thumb {
+    background: #8250f8;
+    border-radius: 4px;
+}
+
+.expenses-list-container::-webkit-scrollbar-thumb:hover {
+    background: #5735a7;
 }
 
 .expense-item {
@@ -140,6 +165,7 @@
     padding: 1rem;
     border-radius: 8px;
     transition: transform 0.3s ease;
+    flex-shrink: 0;
 }
 
 .expense-item:hover {
