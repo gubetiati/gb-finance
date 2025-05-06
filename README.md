@@ -125,10 +125,6 @@ O sistema utiliza JWT (JSON Web Tokens) para autenticação. As rotas protegidas
 4. Faça o Push para a Branch (`git push origin feature/AmazingFeature`)
 5. Abra um Pull Request
 
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
 ## 👥 Autores
 
 - Gustavo Betiati Ferreira - [@gubetiati](https://github.com/gubetiati)
