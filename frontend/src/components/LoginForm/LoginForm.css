@@ -14,10 +14,10 @@
     justify-content: center;
     align-items: center;
     background-color: #2b2b2b;
-    padding: 3rem;
+    padding: 2rem;
     border-radius: 12px;
-    width: calc(100% - 2rem);
-    max-width: 600px;
+    width: 90%;
+    max-width: 400px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     position: relative;
     margin: 1rem;
@@ -82,13 +82,17 @@
     border: none;
     border-radius: 8px;
     font-weight: 500;
-    padding-bottom: 2rem;
+    padding: 1rem;
     font-size: 1.1rem;
     color: #fff;
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 1rem;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
 }
 
 .form-style button:hover {
@@ -140,14 +144,13 @@
 
 @media (max-width: 768px) {
     #root {
-        align-items: center; 
+        padding: 1rem;
     }
 
     .container-principal {
-        padding: 2rem;
-        margin: auto; 
-        width: 90%;
-        max-width: 400px; 
+        padding: 1.5rem;
+        margin: 0.5rem;
+        width: 100%;
     }
 
     .titulo {
@@ -165,6 +168,10 @@
         font-size: 1rem;
     }
 
+    .form-style button {
+        height: 2.75rem;
+    }
+
     .register-link {
         margin-top: 2rem;
         padding-top: 1.5rem;
@@ -174,15 +181,14 @@
 
 @media (max-width: 480px) {
     #root {
-        padding: 0;
+        padding: 0.5rem;
     }
 
     .container-principal {
-        margin: auto; 
-        padding: 1.5rem;
-        max-width: 95%;
+        padding: 1.25rem;
+        margin: 0.5rem;
+        width: 100%;
     }
-
 
     .container-principal::before {
         border-radius: 12px;
@@ -195,7 +201,11 @@
 
     .form-style input,
     .form-style button {
-        padding: 0.875rem;
+        padding: 0.75rem;
+    }
+
+    .form-style button {
+        height: 2.5rem;
     }
 
     .form-style label {

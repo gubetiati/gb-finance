@@ -24,6 +24,26 @@
     z-index: -1;
 }
 
+.back-button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    color: #8250f8;
+    transform: translateX(-3px);
+}
 
 .form-style {
     display: flex;
@@ -55,15 +75,44 @@
 .form-style button {
     background-color: #8250f8;
     border: none;
-    border-radius: 6px;
-    height: 40px;
-    font-weight: bold;
-    font-size: 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 1rem;
+    font-size: 1.1rem;
     color: #fff;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
 }
 
 .form-style button:hover {
     background-color: #5735a7;
+}
+
+@media (max-width: 768px) {
+    .form-style input,
+    .form-style button {
+        padding: 0.875rem 1rem;
+        font-size: 1rem;
+    }
+
+    .form-style button {
+        height: 2.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-style input,
+    .form-style button {
+        padding: 0.75rem;
+    }
+
+    .form-style button {
+        height: 2.5rem;
+    }
 }

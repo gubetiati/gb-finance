@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import './RegisterForm.css'
 
@@ -29,8 +29,15 @@ export default function RegisterForm() {
         }
     }
 
+    const handleBack = () => {
+        navigate('/login')
+    }
+
     return (
         <div className='container-principal'>
+            <button className="back-button" onClick={handleBack}>
+                ←
+            </button>
             <h1 className='titulo'>Cadastro</h1>
             {error && <p className="error-message">{error}</p>}
             <form onSubmit={handleSubmit} className='form-style'>
@@ -80,5 +87,4 @@ export default function RegisterForm() {
             </form>
         </div>
     )
-
 }
